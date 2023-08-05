@@ -4,6 +4,7 @@
  */
 package supermarket;
 import supermarket.View.CustomerView;
+import supermarket.View.ItemView;
 
 /**
  *
@@ -15,7 +16,8 @@ public class Supermarket {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new CustomerView().setVisible(true);
+       // new CustomerView().setVisible(true);
+       new ItemView().setVisible(true);
     }
     
 }

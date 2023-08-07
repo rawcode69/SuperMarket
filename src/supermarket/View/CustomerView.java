@@ -65,6 +65,7 @@ public class CustomerView extends javax.swing.JFrame {
         deleteButton = new javax.swing.JButton();
         custSalaryText = new javax.swing.JTextField();
         custSalaryLabel = new javax.swing.JLabel();
+        clearButton = new javax.swing.JButton();
         tablePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerTable = new javax.swing.JTable();
@@ -134,6 +135,13 @@ public class CustomerView extends javax.swing.JFrame {
 
         custSalaryLabel.setText("Salary");
 
+        clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout fromPanelLayout = new javax.swing.GroupLayout(fromPanel);
         fromPanel.setLayout(fromPanelLayout);
         fromPanelLayout.setHorizontalGroup(
@@ -149,6 +157,15 @@ public class CustomerView extends javax.swing.JFrame {
                     .addComponent(custZipLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fromPanelLayout.createSequentialGroup()
+                        .addComponent(clearButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(deleteButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(updateButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addButton)
+                        .addContainerGap())
                     .addGroup(fromPanelLayout.createSequentialGroup()
                         .addComponent(custCityText, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -181,14 +198,6 @@ public class CustomerView extends javax.swing.JFrame {
                     .addGroup(fromPanelLayout.createSequentialGroup()
                         .addComponent(custZipText)
                         .addGap(538, 538, 538))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fromPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(deleteButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(updateButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addButton)
-                .addContainerGap())
         );
         fromPanelLayout.setVerticalGroup(
             fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,11 +234,16 @@ public class CustomerView extends javax.swing.JFrame {
                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(custZipLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(custZipText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton)
-                    .addComponent(updateButton)
-                    .addComponent(deleteButton))
+                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fromPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addButton)
+                            .addComponent(updateButton)
+                            .addComponent(deleteButton)))
+                    .addGroup(fromPanelLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(clearButton)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -320,6 +334,10 @@ public class CustomerView extends javax.swing.JFrame {
         searchCustomer();
     }//GEN-LAST:event_customerTableMouseClicked
 
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        clear();
+    }//GEN-LAST:event_clearButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -358,6 +376,7 @@ public class CustomerView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JPanel basePanel;
+    private javax.swing.JButton clearButton;
     private javax.swing.JLabel custAddressLabel;
     private javax.swing.JTextField custAddressText;
     private javax.swing.JLabel custCityLabel;

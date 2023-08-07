@@ -27,7 +27,7 @@ import supermarket.Model.OrderModel;
  * @author Ravidu Ayeshmanth
  */
 public class OrderView extends javax.swing.JFrame {
-
+    
     CustomerController customerController;
     ItemController itemController;
     OrderController orderController;
@@ -44,7 +44,7 @@ public class OrderView extends javax.swing.JFrame {
         loadTable();
         addItemButton.setEnabled(false);
         orderController = new OrderController();
-
+        
     }
 
     /**
@@ -79,6 +79,8 @@ public class OrderView extends javax.swing.JFrame {
         addErrorLabel = new javax.swing.JLabel();
         qtyNumberMsgLabel = new javax.swing.JLabel();
         discountNumberMsgLabel = new javax.swing.JLabel();
+        itemsMenuButton = new javax.swing.JButton();
+        customerMenuButton = new javax.swing.JButton();
         tablePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         itemTable = new javax.swing.JTable();
@@ -159,6 +161,20 @@ public class OrderView extends javax.swing.JFrame {
             }
         });
 
+        itemsMenuButton.setText("ITEMS");
+        itemsMenuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemsMenuButtonActionPerformed(evt);
+            }
+        });
+
+        customerMenuButton.setText("CUSTOMERS");
+        customerMenuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerMenuButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout formPanelLayout = new javax.swing.GroupLayout(formPanel);
         formPanel.setLayout(formPanelLayout);
         formPanelLayout.setHorizontalGroup(
@@ -182,9 +198,13 @@ public class OrderView extends javax.swing.JFrame {
                                 .addComponent(cutomerText, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(customerSearchButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(customerViewLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 136, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(customerViewLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(customerMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(itemsMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 35, Short.MAX_VALUE))
                             .addGroup(formPanelLayout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,16 +238,23 @@ public class OrderView extends javax.swing.JFrame {
             formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(orderIDLabel)
-                    .addComponent(orderIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(customerViewLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(customerLabel)
-                        .addComponent(cutomerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(customerSearchButton)))
+                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(formPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(itemsMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(customerMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(formPanelLayout.createSequentialGroup()
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(orderIDLabel)
+                            .addComponent(orderIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(customerViewLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(customerLabel)
+                                .addComponent(cutomerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(customerSearchButton)))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -260,8 +287,10 @@ public class OrderView extends javax.swing.JFrame {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(headerlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
-                    .addComponent(formPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(headerlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(headerPanelLayout.createSequentialGroup()
+                        .addComponent(formPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 33, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         headerPanelLayout.setVerticalGroup(
@@ -313,7 +342,7 @@ public class OrderView extends javax.swing.JFrame {
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
                 .addGroup(tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tablePanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(totalAmountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -328,10 +357,10 @@ public class OrderView extends javax.swing.JFrame {
             .addGroup(tablePanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(placeOrderButton)
+                .addGroup(tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(totalAmountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(totalAmountValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(totalAmountValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(placeOrderButton))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -437,9 +466,35 @@ public class OrderView extends javax.swing.JFrame {
     }//GEN-LAST:event_discountTextKeyPressed
 
     private void itemTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_itemTableKeyReleased
-
+        
 
     }//GEN-LAST:event_itemTableKeyReleased
+
+    private void itemsMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsMenuButtonActionPerformed
+        ItemView itemView = new ItemView() {
+            @Override
+            public void setDefaultCloseOperation(int operation) {
+                super.setDefaultCloseOperation(2);
+            }
+            
+        };
+        
+        itemView.setVisible(true);
+        
+
+    }//GEN-LAST:event_itemsMenuButtonActionPerformed
+
+    private void customerMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerMenuButtonActionPerformed
+        CustomerView customerView = new CustomerView(){
+            @Override
+            public void setDefaultCloseOperation(int operation) {
+                super.setDefaultCloseOperation(2); 
+            }
+            
+        };
+        
+        customerView.setVisible(true);
+    }//GEN-LAST:event_customerMenuButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -481,6 +536,7 @@ public class OrderView extends javax.swing.JFrame {
     private javax.swing.JButton addItemButton;
     private javax.swing.JPanel basePanel;
     private javax.swing.JLabel customerLabel;
+    private javax.swing.JButton customerMenuButton;
     private javax.swing.JButton customerSearchButton;
     private javax.swing.JLabel customerViewLabel;
     private javax.swing.JTextField cutomerText;
@@ -495,6 +551,7 @@ public class OrderView extends javax.swing.JFrame {
     private javax.swing.JTable itemTable;
     private javax.swing.JTextField itemText;
     private javax.swing.JLabel itemViewLabel;
+    private javax.swing.JButton itemsMenuButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel orderIDLabel;
@@ -509,60 +566,60 @@ public class OrderView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void clearItem() {
-
+        
         itemText.setText("");
         qtyText.setText("");
         discountText.setText("");
         itemViewLabel.setText("");
     }
-
+    
     private void searchCustomer() {
-
+        
         try {
             String custId = cutomerText.getText();
             CustomerModel customer = customerController.getCustomer(custId);
-
+            
             if (customer != null) {
                 customerViewLabel.setText(customer.getCustName() + " ," + customer.getCustAddress());
             } else {
                 customerViewLabel.setText("Customer Not Found");
             }
-
+            
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, ex);
         }
     }
-
+    
     private void searchItem() {
-
+        
         try {
             String itemCode = itemText.getText();
             ItemModel item = itemController.getItem(itemCode);
-
+            
             if (item != null) {
                 itemViewLabel.setText(item.getDescription() + " ," + item.getPackSize() + " ," + item.getUnitPrice());
             } else {
                 itemViewLabel.setText("Item Not Found");
             }
-
+            
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, ex);
         }
     }
-
+    
     private void loadTable() {
-
+        
         String[] colunmNames = {"Item Code", "Description", "Pack Size", "Unit Price", "Discount", "Quantity", "Total"};
         DefaultTableModel dtm = new DefaultTableModel(colunmNames, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
-
+            
         };
-
+        
         dtm.addTableModelListener(new TableModelListener() {
             @Override
             public void tableChanged(TableModelEvent e) {
@@ -575,19 +632,19 @@ public class OrderView extends javax.swing.JFrame {
         });
         itemTable.setModel(dtm);
     }
-
+    
     private void addToItem() {
-
+        
         try {
             ItemModel item = itemController.getItem(itemText.getText());
             CustomerModel customer = customerController.getCustomer(cutomerText.getText());
-
+            
             if (item != null && customer != null) {
-
+                
                 if (Integer.valueOf(qtyText.getText()) < item.getQuantityOnHand()) {
-
+                    
                     Double total = ((item.getUnitPrice()) - Double.valueOf(discountText.getText())) * Double.valueOf(qtyText.getText());
-
+                    
                     OrderDetailModel orderDetailModel = new OrderDetailModel(
                             orderIdText.getText(),
                             item.getItemCode(),
@@ -597,12 +654,12 @@ public class OrderView extends javax.swing.JFrame {
                             Double.valueOf(discountText.getText()),
                             Integer.valueOf(qtyText.getText()),
                             total);
-
+                    
                     orderDetailModels.add(orderDetailModel);
-
+                    
                     DefaultTableModel dtm = (DefaultTableModel) itemTable.getModel();
                     if (Integer.valueOf(qtyText.getText()) < item.getQuantityOnHand()) {
-
+                        
                     }
                     Object[] rowDate = {orderDetailModel.getItemCode(), orderDetailModel.getDescription(), orderDetailModel.getPackSize(), orderDetailModel.getUnitPrice(), orderDetailModel.getDiscount(), orderDetailModel.getQuantity(), orderDetailModel.getTotal()};
                     dtm.addRow(rowDate);
@@ -613,47 +670,70 @@ public class OrderView extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Insufficient Balance In " + item.getItemCode() + " | QTY On Hand: " + item.getQuantityOnHand());
                 }
             } else {
-
+                
                 if (item == null) {
                     JOptionPane.showMessageDialog(this, "Item " + itemText.getText() + " Not Found");
-                }else if(customer == null){
+                } else if (customer == null) {
                     JOptionPane.showMessageDialog(this, "Customer " + cutomerText.getText() + " Not Found");
-                }else{
-                    JOptionPane.showMessageDialog(this, "Item " + itemText.getText()+" AND "+"Customer " + cutomerText.getText() + " Not Found");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Item " + itemText.getText() + " AND " + "Customer " + cutomerText.getText() + " Not Found");
                 }
-                        
-
+                
             }
-
+            
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
-
+    
     private void placeOrder() {
-
+        
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             OrderModel orderModel = new OrderModel(
                     orderIdText.getText(),
                     sdf.format(new Date()),
                     cutomerText.getText());
-
+            
             String resp = orderController.placeOrder(orderModel, orderDetailModels);
             JOptionPane.showMessageDialog(this, resp);
+            clearAll();
+            
+            
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, ex);
         }
     }
-
+    
     private void totalAmount() {
         Double total = 0.0;
         for (OrderDetailModel orderDetailModel : orderDetailModels) {
             total += orderDetailModel.getTotal();
         }
-
+        
         totalAmountValueLabel.setText(Double.toString(total));
+    }
+    
+    private void clearTable(){
+        
+        DefaultTableModel tableModel = (DefaultTableModel) itemTable.getModel();
+        tableModel.setRowCount(0);
+    }
+    
+    private void clearAll(){
+        
+        orderIdText.setText("");
+        cutomerText.setText("");
+        itemText.setText("");
+        qtyText.setText("");
+        discountText.setText("");
+        itemViewLabel.setText("");
+        totalAmountValueLabel.setText("");
+        customerViewLabel.setText("");
+        itemViewLabel.setText("");
+        clearTable();
+        
     }
 }

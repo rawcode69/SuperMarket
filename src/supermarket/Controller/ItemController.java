@@ -56,10 +56,9 @@ public class ItemController {
                     rst.getInt(5));
 
             items.add(item);
-            return items;
+
         }
-        return  null;
-        
+        return items;
 
     }
 
@@ -88,38 +87,38 @@ public class ItemController {
     }
 
     public String updateItem(ItemModel item) throws ClassNotFoundException, SQLException {
-        
+
         Connection connection = DBConnection.getInstance().getConnection();
         String query = "UPDATE item SET Description = ?, PackSize = ?, UnitPrice = ?,QtyOnHand = ? WHERE ItemCode = ?";
-        
+
         PreparedStatement statement = connection.prepareStatement(query);
-        
+
         statement.setString(1, item.getDescription());
         statement.setString(2, item.getPackSize());
         statement.setDouble(3, item.getUnitPrice());
         statement.setInt(4, item.getQuantityOnHand());
         statement.setString(5, item.getItemCode());
-        
-        if(statement.executeUpdate() > 0){
+
+        if (statement.executeUpdate() > 0) {
             return "Item Succefully Updated";
-        }else{
+        } else {
             return "Item Update Failed";
         }
-        
+
     }
 
     public String deleteItem(String itemCode) throws ClassNotFoundException, SQLException {
-       Connection connection = DBConnection.getInstance().getConnection();
-       String query = "DELETE FROM item WHERE ItemCode = ?";
-       
-       PreparedStatement statement = connection.prepareStatement(query);
-       statement.setString(1, itemCode);
-       
-       if(statement.executeUpdate() > 0){
-           return "Item Succuesfully Deleted";
-       }else{
-           return "Item Delete Failed";
-       }
+        Connection connection = DBConnection.getInstance().getConnection();
+        String query = "DELETE FROM item WHERE ItemCode = ?";
+
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, itemCode);
+
+        if (statement.executeUpdate() > 0) {
+            return "Item Succuesfully Deleted";
+        } else {
+            return "Item Delete Failed";
+        }
     }
 
 }

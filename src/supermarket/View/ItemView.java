@@ -56,6 +56,7 @@ public class ItemView extends javax.swing.JFrame {
         addButton = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        ClearButton = new javax.swing.JButton();
         tablePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         itemTable = new javax.swing.JTable();
@@ -117,6 +118,13 @@ public class ItemView extends javax.swing.JFrame {
             }
         });
 
+        ClearButton.setText("Clear");
+        ClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout fromPanelLayout = new javax.swing.GroupLayout(fromPanel);
         fromPanel.setLayout(fromPanelLayout);
         fromPanelLayout.setHorizontalGroup(
@@ -136,20 +144,23 @@ public class ItemView extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(fromPanelLayout.createSequentialGroup()
                         .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(itemCodeText, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                .addComponent(itemPackSizeText, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                .addComponent(itemUnitPriceText))
-                            .addComponent(itemDescriptionText, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fromPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(deleteButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(updateButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addButton)
-                .addContainerGap())
+                            .addGroup(fromPanelLayout.createSequentialGroup()
+                                .addComponent(ClearButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(deleteButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(updateButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addButton))
+                            .addGroup(fromPanelLayout.createSequentialGroup()
+                                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(itemCodeText, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                        .addComponent(itemPackSizeText, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                        .addComponent(itemUnitPriceText))
+                                    .addComponent(itemDescriptionText, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         fromPanelLayout.setVerticalGroup(
             fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +189,8 @@ public class ItemView extends javax.swing.JFrame {
                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton)
                     .addComponent(updateButton)
-                    .addComponent(deleteButton))
+                    .addComponent(deleteButton)
+                    .addComponent(ClearButton))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -268,6 +280,10 @@ public class ItemView extends javax.swing.JFrame {
         searchCustomer();
     }//GEN-LAST:event_itemTableMouseClicked
 
+    private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
+       clear();
+    }//GEN-LAST:event_ClearButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -304,17 +320,12 @@ public class ItemView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ClearButton;
     private javax.swing.JButton addButton;
-    private javax.swing.JPanel basePanel;
-    private javax.swing.JPanel basePanel1;
     private javax.swing.JPanel basePanel2;
     private javax.swing.JButton deleteButton;
     private javax.swing.JPanel fromPanel;
-    private javax.swing.JPanel headerPanel;
-    private javax.swing.JPanel headerPanel1;
     private javax.swing.JPanel headerPanel2;
-    private javax.swing.JLabel headerlabel;
-    private javax.swing.JLabel headerlabel1;
     private javax.swing.JLabel headerlabel2;
     private javax.swing.JLabel itemCodeLabel;
     private javax.swing.JTextField itemCodeText;

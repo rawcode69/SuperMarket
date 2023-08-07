@@ -5,6 +5,7 @@
 package supermarket;
 import supermarket.View.CustomerView;
 import supermarket.View.ItemView;
+import supermarket.View.OrderView;
 
 /**
  *
@@ -17,7 +18,8 @@ public class Supermarket {
      */
     public static void main(String[] args) {
        // new CustomerView().setVisible(true);
-       new ItemView().setVisible(true);
+       //new ItemView().setVisible(true);
+       new OrderView().setVisible(true);
     }
     
 }

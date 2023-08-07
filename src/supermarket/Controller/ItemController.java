@@ -56,9 +56,10 @@ public class ItemController {
                     rst.getInt(5));
 
             items.add(item);
+            return items;
         }
-
-        return items;
+        return  null;
+        
 
     }
 
